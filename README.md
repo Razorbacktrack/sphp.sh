@@ -4,6 +4,16 @@ Shell script for switching between Brew-installed PHP versions, as featured in t
 [macOS Apache + PHP series](https://getgrav.org/blog/macos-ventura-apache-multiple-php-versions)
 on https://getgrav.org.
 
+---
+## This is a fork
+This repository is a fork of [rhukster/sphp.sh](https://github.com/rhukster/sphp.sh).
+
+**Main changes:**
+- When switching PHP versions, the script now also stops all Homebrew PHP services (`brew services stop php@version`) before switching, and starts the selected PHP version service (`brew services start php@version`) after switching. Previously, only `brew unlink` and `brew link` were used without managing services.
+
+Maintainer of this fork: **Razorbacktrack**
+---
+
 The code has been moved from the
 [original gist](https://gist.github.com/rhukster/f4c04f1bf59e0b74e335ee5d186a98e2)
 to a proper repository, to better allow for pull requests and issues.

@@ -108,9 +108,11 @@ if [[ " ${brew_array[*]} " == *"$target_version"* ]]; then
         echo "Switching your shell"
         for i in "${php_installed_array[@]}"; do
             brew unlink "php@$i"
-        done
+            brew services stop "php@$i"
+        done 
         brew link --force "$php_version"
-
+        brew services start "$php_version"
+        
         # Switch apache
         if [[ $apache_change -eq 1 ]]; then
             echo "Switching your apache conf"
